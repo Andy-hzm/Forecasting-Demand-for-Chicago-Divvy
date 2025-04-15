@@ -40,10 +40,4 @@ https://docs.google.com/presentation/d/1zirE8-RNol8iQ32XVcBCTva_F0xOp91v9OjNnADu
 ![image](https://github.com/user-attachments/assets/f6701b91-187d-4ff9-9141-0bf50047916d)
 
 
----
 
-## 🧠 Key Takeaways
-
-- Forecasting accuracy improved with station-specific modeling.
-- Cluster-based segmentation enabled scalable forecasting strategies.
-- Business impact includes better rebalancing and resource utilization.
