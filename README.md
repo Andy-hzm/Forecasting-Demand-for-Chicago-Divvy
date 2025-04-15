@@ -14,25 +14,29 @@ This project presents a machine learning framework to forecast demand for Divvy 
 
 ## 🔍 Project Overview
 
-- **Problem Statement**: Forecast short-term demand at individual bike stations to optimize redistribution and minimize shortages.
+- **Problem Statement**: Forecast short-term & Long-term demand to optimize redistribution and minimize shortages.
 - **Tech Stack**: Python, scikit-learn, XGBoost, time series analysis, geospatial clustering
 - **Approach**:
   - Station segmentation based on usage patterns
   - City-wide and station-level demand forecasting
   - Model evaluation and business impact analysis
+![image](https://github.com/user-attachments/assets/e83606e0-99c9-4c7d-bdba-1e2128d07bd2)
 
 ---
 
 ## 📈 Results & Visuals
 
 ### Station Segmentation
-![Station Segmentation](https://github.com/user-attachments/assets/ae6c4f0f-3ca0-4447-a07d-78675b96c306)
+![image](https://github.com/user-attachments/assets/42a2d109-e2f7-46e5-b108-8d5b603ba3eb)
+
 
 ### City-wide Forecasting
-![City-wide Forecasting](https://github.com/user-attachments/assets/6aa4ce8b-748d-4c5c-ab71-fa6484f8efb4)
+![image](https://github.com/user-attachments/assets/f04d523d-79fa-48c2-8bc8-19f1c7a58c35)
+
 
 ### Station-level Forecasting
-![Station-level Forecasting](https://github.com/user-attachments/assets/20fbc920-b04c-40b3-992e-1a968646d240)
+![image](https://github.com/user-attachments/assets/f6701b91-187d-4ff9-9141-0bf50047916d)
+
 
 ---
 
