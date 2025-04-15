@@ -28,15 +28,12 @@ https://docs.google.com/presentation/d/1zirE8-RNol8iQ32XVcBCTva_F0xOp91v9OjNnADu
 
 ## 📈 Results & Visuals
 
-### Station Segmentation
 ![image](https://github.com/user-attachments/assets/42a2d109-e2f7-46e5-b108-8d5b603ba3eb)
 
 
-### City-wide Forecasting
 ![image](https://github.com/user-attachments/assets/f04d523d-79fa-48c2-8bc8-19f1c7a58c35)
 
 
-### Station-level Forecasting
 ![image](https://github.com/user-attachments/assets/f6701b91-187d-4ff9-9141-0bf50047916d)
 
 
