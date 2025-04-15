@@ -8,7 +8,8 @@ This project presents a machine learning framework to forecast demand for Divvy 
 
 ## 📊 Full Presentation
 
-**[View the full project presentation on Google Slides]([https://docs.google.com/presentation/d/1izrE8-NNoI8iQ32XVcBCTva_F0xOp91v90jMnADu404/edit?slide=id.g3356d7ecdbb_2_354](https://docs.google.com/presentation/d/1zirE8-RNol8iQ32XVcBCTva_F0xOp91v9OjNnADu404/edit?usp=sharing))**
+**[View the full project presentation on Google Slides]**
+https://docs.google.com/presentation/d/1zirE8-RNol8iQ32XVcBCTva_F0xOp91v9OjNnADu404/edit?usp=sharing
 
 ---
 
