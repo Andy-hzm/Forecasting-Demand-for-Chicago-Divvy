@@ -11,6 +11,10 @@ dependencies = [
     "pyarrow",
     "requests",
     "python-dotenv",
+    "matplotlib",
+    "seaborn",
+    "statsmodels",
+    "scipy",
 ]
 
 [tool.setuptools.packages.find]

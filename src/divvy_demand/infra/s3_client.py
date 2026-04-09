@@ -56,15 +56,16 @@ class S3Client:
     # ------------------------------------------------------------------
 
     def write_processed(self, df: pd.DataFrame, level: str) -> None:
-        """level: 'overall' or 'station'"""
+        """level: 'overall', 'station', 'weather/historical', etc."""
         key = f"{self.prefix}/processed/{level}/data.parquet"
         self._write_parquet(df, key)
         logger.info(f"Wrote {len(df)} rows → s3://{self.bucket}/{key}")
 
     def read_processed(self, level: str) -> pd.DataFrame:
-        """level: 'overall' or 'station'"""
+        """level: 'overall', 'station', 'weather/historical', etc."""
         key = f"{self.prefix}/processed/{level}/data.parquet"
         return self._read_parquet(key)
+
 
     # ------------------------------------------------------------------
     # Internal helpers
