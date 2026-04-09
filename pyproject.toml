@@ -5,6 +5,13 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "divvy-demand"
 version = "0.1.0"
+dependencies = [
+    "boto3",
+    "pandas",
+    "pyarrow",
+    "requests",
+    "python-dotenv",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]
