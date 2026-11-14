@@ -1,0 +1,14 @@
+.env
+.venv/
+*.egg-info/
+__pycache__/
+.DS_Store
+
+# large / regenerable artifacts (see README "Reproducing")
+models/*.pt
+models/*.json
+!models/*_meta.json
+notebooks/models/
+notebooks/runs/
+notebooks/**/runs/
+notebooks/**/*.html

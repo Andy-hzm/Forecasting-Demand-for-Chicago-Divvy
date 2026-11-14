@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "divvy-demand"
+version = "0.1.0"
+dependencies = [
+    "boto3",
+    "pandas",
+    "pyarrow",
+    "requests",
+    "python-dotenv",
+    "matplotlib",
+    "seaborn",
+    "statsmodels",
+    "scipy",
+    "pybaseball",
+    "nfl-data-py",
+    "nba-api",
+    "holidays",
+    "scikit-learn",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
