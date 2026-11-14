@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="470" viewBox="0 0 1040 470" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/></marker>
+    <style>
+      .col{fill:none;stroke-width:2;stroke-dasharray:7 5;rx:18}
+      .box{fill:#fff;stroke-width:1.6;rx:8}
+      .t{font-size:13px;fill:#1a202c} .b{font-weight:700} .s{font-size:11px;fill:#4a5568}
+      .h{font-size:15px;font-weight:700}
+      .a{stroke:#4a5568;stroke-width:2;fill:none;marker-end:url(#arr)}
+    </style>
+  </defs>
+  <text x="520" y="26" text-anchor="middle" class="h" fill="#1a202c">Divvy demand forecasting v2 — data lake → probabilistic model → dispatch decisions</text>
+
+  <!-- column 1: data lake & features -->
+  <rect x="20" y="48" width="330" height="400" class="col" stroke="#2b6cb0"/>
+  <text x="185" y="72" text-anchor="middle" class="h" fill="#2b6cb0">Data lake &amp; features</text>
+  <rect x="40" y="90" width="120" height="110" class="box" stroke="#2b6cb0"/>
+  <text x="100" y="118" text-anchor="middle" class="t b">Divvy trips</text>
+  <text x="100" y="138" text-anchor="middle" class="s">2020-01 → 2026-02</text>
+  <text x="100" y="154" text-anchor="middle" class="s">monthly zip → Parquet</text>
+  <text x="100" y="170" text-anchor="middle" class="s">S3 raw/ · EC2 via SSM</text>
+  <rect x="40" y="215" width="120" height="110" class="box" stroke="#2b6cb0"/>
+  <text x="100" y="243" text-anchor="middle" class="t b">External feeds</text>
+  <text x="100" y="263" text-anchor="middle" class="s">Open-Meteo obs + fcst</text>
+  <text x="100" y="279" text-anchor="middle" class="s">MLB · NFL · NBA · NHL</text>
+  <text x="100" y="295" text-anchor="middle" class="s">holidays · city events</text>
+  <text x="100" y="311" text-anchor="middle" class="s">university terms · docks</text>
+  <rect x="190" y="90" width="140" height="235" class="box" stroke="#2b6cb0"/>
+  <text x="260" y="118" text-anchor="middle" class="t b">Station-day table</text>
+  <text x="260" y="140" text-anchor="middle" class="s">counts · hourly shape</text>
+  <text x="260" y="156" text-anchor="middle" class="s">trip-distance quantiles</text>
+  <text x="260" y="172" text-anchor="middle" class="s">in/out dock flow</text>
+  <text x="260" y="196" text-anchor="middle" class="s">dedupe · calendar reindex</text>
+  <text x="260" y="212" text-anchor="middle" class="s">grouped lags &amp; rolls</text>
+  <text x="260" y="236" text-anchor="middle" class="s">+ 155 features chosen by</text>
+  <text x="260" y="252" text-anchor="middle" class="s">XGBoost group ablation</text>
+  <text x="260" y="276" text-anchor="middle" class="s">s3://…/processed/*</text>
+  <path d="M160 145 L190 145" class="a"/><path d="M160 270 L190 270" class="a"/>
+  <rect x="40" y="345" width="290" height="80" class="box" stroke="#2b6cb0"/>
+  <text x="185" y="372" text-anchor="middle" class="t b">Validation discipline</text>
+  <text x="185" y="392" text-anchor="middle" class="s">train → 2024-02 · val 2024-03→2025-02 · test 2025-03→2026-02</text>
+  <text x="185" y="408" text-anchor="middle" class="s">forecast weather only on target day · scalers fit on train</text>
+
+  <!-- column 2: models -->
+  <rect x="375" y="48" width="320" height="400" class="col" stroke="#2f855a"/>
+  <text x="535" y="72" text-anchor="middle" class="h" fill="#2f855a">Models</text>
+  <rect x="395" y="90" width="280" height="150" class="box" stroke="#2f855a"/>
+  <text x="535" y="116" text-anchor="middle" class="t b">Multi-branch LSTM · Negative Binomial</text>
+  <text x="535" y="138" text-anchor="middle" class="s">7-day window × 155 features → 5×128 LSTM</text>
+  <text x="535" y="154" text-anchor="middle" class="s">station embedding · Fourier geo encoding</text>
+  <text x="535" y="170" text-anchor="middle" class="s">target-day weather / events / statics → head</text>
+  <text x="535" y="192" text-anchor="middle" class="s">heads: log μ · log α · P(zero day)</text>
+  <text x="535" y="214" text-anchor="middle" class="t">R² 0.86 · median station R² 0.80 · Pearson 0.95</text>
+  <rect x="395" y="255" width="280" height="80" class="box" stroke="#2f855a"/>
+  <text x="535" y="281" text-anchor="middle" class="t b">XGBoost · Poisson (baseline)</text>
+  <text x="535" y="301" text-anchor="middle" class="s">same features · 332 stations · R² 0.89</text>
+  <text x="535" y="317" text-anchor="middle" class="s">feature-group ablation driver</text>
+  <rect x="395" y="350" width="280" height="75" class="box" stroke="#2f855a"/>
+  <text x="535" y="376" text-anchor="middle" class="t b">Station segmentation</text>
+  <text x="535" y="396" text-anchor="middle" class="s">CNN autoencoder on 365-day profiles → spectral</text>
+  <text x="535" y="412" text-anchor="middle" class="s">commuter · lakefront · campus · neighbourhood</text>
+
+  <!-- column 3: operations -->
+  <rect x="720" y="48" width="300" height="400" class="col" stroke="#b7791f"/>
+  <text x="870" y="72" text-anchor="middle" class="h" fill="#b7791f">Operations</text>
+  <rect x="740" y="90" width="260" height="95" class="box" stroke="#b7791f"/>
+  <text x="870" y="116" text-anchor="middle" class="t b">Tomorrow's demand per station</text>
+  <text x="870" y="138" text-anchor="middle" class="s">point forecast + calibrated interval</text>
+  <text x="870" y="154" text-anchor="middle" class="s">MAE 7.6 rides on 164 core stations</text>
+  <text x="870" y="170" text-anchor="middle" class="s">rebalancing quantity &amp; confidence</text>
+  <rect x="740" y="205" width="260" height="115" class="box" stroke="#b7791f"/>
+  <text x="870" y="231" text-anchor="middle" class="t b">Surge / plunge alerts (±50 rides)</text>
+  <text x="870" y="253" text-anchor="middle" class="s">P(y &lt; y_today − 50) read off NB(μ, α)</text>
+  <text x="870" y="269" text-anchor="middle" class="s">precision-first thresholds (false alarm = truck)</text>
+  <text x="870" y="285" text-anchor="middle" class="s">plunge: 90 % precision @ 17 % recall</text>
+  <text x="870" y="301" text-anchor="middle" class="s">val/test thresholds agree within 0.02</text>
+  <rect x="740" y="340" width="260" height="85" class="box" stroke="#b7791f"/>
+  <text x="870" y="366" text-anchor="middle" class="t b">Network understanding</text>
+  <text x="870" y="388" text-anchor="middle" class="s">station archetypes · growth candidates</text>
+  <text x="870" y="404" text-anchor="middle" class="s">city-wide trend (v1: SARIMA / Prophet)</text>
+
+  <!-- arrows between columns -->
+  <path d="M330 165 L395 165" class="a"/><path d="M330 295 L395 295" class="a"/>
+  <path d="M675 165 L740 137" class="a"/><path d="M675 190 L740 262" class="a"/>
+  <path d="M675 387 L740 387" class="a"/><path d="M675 295 L740 382" class="a"/>
+</svg>
