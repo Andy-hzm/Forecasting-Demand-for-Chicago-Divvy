@@ -15,6 +15,11 @@ dependencies = [
     "seaborn",
     "statsmodels",
     "scipy",
+    "pybaseball",
+    "nfl-data-py",
+    "nba-api",
+    "holidays",
+    "scikit-learn",
 ]
 
 [tool.setuptools.packages.find]

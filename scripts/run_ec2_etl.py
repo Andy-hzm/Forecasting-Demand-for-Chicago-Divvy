@@ -6,6 +6,9 @@ Usage:
     python scripts/run_ec2_etl.py --env dev              # run on dev
     python scripts/run_ec2_etl.py --level overall        # city-wide only
     python scripts/run_ec2_etl.py --level station        # station-level only
+    python scripts/run_ec2_etl.py --level station_flow   # inbound / net flow (raw scan)
+    Any --level accepted by scripts/run_etl.py works here; the raw-scanning ones
+    (overall, station, trip, station_meta, station_flow) are the ones worth sending to EC2.
     python scripts/run_ec2_etl.py --setup                # first-time instance setup
     python scripts/run_ec2_etl.py --no-stop              # keep instance running after job
 """
@@ -53,7 +56,8 @@ def upload_code(bucket: str) -> None:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--env", default="prod", choices=["prod", "dev"])
-    parser.add_argument("--level", choices=["overall", "station"])
+    parser.add_argument("--level", choices=["overall", "station", "trip", "weather", "sports", "holidays",
+                                            "academic", "station_meta", "station_flow", "station_spatial"])
     parser.add_argument("--setup", action="store_true", help="Run first-time setup on the instance")
     parser.add_argument("--no-stop", action="store_true", help="Keep instance running after job")
     args = parser.parse_args()

@@ -68,6 +68,29 @@ def compare_ts(
     plt.show()
 
 
+def filter_stations(
+    station_df: pd.DataFrame,
+    min_days: int,
+    date_col: str = "date",
+    station_col: str = "start_station_name",
+    rides_col: str = "total_rides",
+) -> list[str]:
+    """
+    Return a list of station names active on more than `min_days` distinct days.
+
+    Parameters
+    ----------
+    station_df : station-level processed DataFrame (date, start_station_name, total_rides, ...)
+    min_days   : minimum number of days with at least 1 ride (exclusive lower bound)
+    """
+    active = (
+        station_df[station_df[rides_col] > 0]
+        .groupby(station_col)[date_col]
+        .nunique()
+    )
+    return active[active > min_days].index.tolist()
+
+
 def plot_acf_pacf(series: pd.Series, lags: int = 50, title: str = "") -> None:
     """Side-by-side ACF and PACF plots."""
     fig, axes = plt.subplots(1, 2, figsize=(14, 4))
